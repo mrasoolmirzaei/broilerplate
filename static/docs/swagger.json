@@ -1,0 +1,47 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "REST API to interact with [Broilerplate](https://github.com/muety/broilerplate)\n\n## Authentication\nSet header `Authorization` to your API Key encoded as Base64 and prefixed with `Basic`\n**Example:** `Basic ODY2NDhkNzQtMTljNS00NTJiLWJhMDEtZmIzZWM3MGQ0YzJmCg==`",
+        "title": "Broilerplate API",
+        "contact": {
+            "name": "Ferdinand Mütsch",
+            "url": "https://github.com/muety",
+            "email": "ferdinand@muetsch.io"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/muety/broilerplate/blob/master/LICENSE.txt"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/health": {
+            "get": {
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    "misc"
+                ],
+                "summary": "Check the application's health status",
+                "operationId": "get-health",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ template "head.tpl.html" . }}
+
+<script>
+    // Constants
+    const defaultAvatarUrl = 'assets/images/unknown.svg'
+    const avatarUrlTemplate = {{ avatarUrlTemplate }}
+
+    function guessTimezone() {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone
+    }
+</script>
+<script type="module" src="assets/js/components/signup.js"></script>
+
+<body class="bg-gray-900 text-gray-700 p-4 pt-10 flex flex-col min-h-screen max-w-screen-lg mx-auto justify-center">
+
+{{ template "header.tpl.html" . }}
+
+{{ template "alerts.tpl.html" . }}
+
+<main class="mt-10 flex-grow flex justify-center w-full" id="signup-page">
+    <div class="flex-grow max-w-lg mt-10">
+        <div class="mb-8">
+            <h1 class="h1">Sign up</h1>
+            <p class="h1-subcaption">
+                Welcome! Your first step is to create an account.
+            </p>
+        </div>
+        <div>
+
+        </div>
+
+        <form class="mt-10" action="signup" method="post">
+            <input type="hidden" name="location" id="input-location" v-model="timezone">
+
+            <div class="flex space-x-4">
+                <div class="mt-1">
+                    <img v-cloak id="avatar" :src="avatarUrl" width="96px" class="rounded-full border-4 border-blue-700 cursor-pointer" alt="User Profile Avatar" title="Your Avatar"/>
+                </div>
+
+                <div>
+                    <div class="mb-4">
+                        <input class="input-default"
+                               v-model="username"
+                               type="text" id="username"
+                               name="username" placeholder="Choose a username" minlength="1"
+                               @keyup="updateAvatar"
+                               required autofocus>
+                    </div>
+                    <div class="mb-4">
+                        <input class="input-default"
+                               v-model="email"
+                               type="email" id="email"
+                               name="email" @keyup="updateAvatar" placeholder="Your e-mail address">
+                        <div class="text-xs text-gray-600 mt-2">E-Mail address is optional, but required for some weekly reports and password reset.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4">
+                <input class="input-default"
+                       type="password" id="password"
+                       name="password" placeholder="Choose a password" minlength="6" required>
+            </div>
+            <div class="mb-4">
+                <input class="input-default"
+                       type="password" id="password_repeat"
+                       name="password_repeat" placeholder="And again..." minlength="6" required>
+            </div>
+
+            {{ if eq .TotalUsers 0 }}
+            <p class="text-sm text-gray-300 mt-4 mb-8">
+                ⚠️ <strong>Please note: </strong> Since there are no users registered in the system, yet, the first user will have administrative privileges, while additional users won't.
+            </p>
+            {{ end }}
+
+            <div class="flex space-x-2 justify-end">
+                <a href="login">
+                    <button type="button" class="btn-default">Log in</button>
+                </a>
+                <button type="submit" class="btn-primary">
+                    Create Account
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{ template "footer.tpl.html" . }}
+
+{{ template "foot.tpl.html" . }}
+
+</body>
+
+</html>

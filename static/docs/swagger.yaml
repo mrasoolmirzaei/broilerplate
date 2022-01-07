@@ -1,0 +1,37 @@
+basePath: /api
+info:
+  contact:
+    email: ferdinand@muetsch.io
+    name: Ferdinand Mütsch
+    url: https://github.com/muety
+  description: |-
+    REST API to interact with [Broilerplate](https://github.com/muety/broilerplate)
+
+    ## Authentication
+    Set header `Authorization` to your API Key encoded as Base64 and prefixed with `Basic`
+    **Example:** `Basic ODY2NDhkNzQtMTljNS00NTJiLWJhMDEtZmIzZWM3MGQ0YzJmCg==`
+  license:
+    name: MIT
+    url: https://github.com/muety/broilerplate/blob/master/LICENSE.txt
+  title: Broilerplate API
+  version: "1.0"
+paths:
+  /health:
+    get:
+      operationId: get-health
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Check the application's health status
+      tags:
+      - misc
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
