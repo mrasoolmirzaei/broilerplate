@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/logo.png" width="200">
+  <img src="static/assets/images/logo.png" width="200">
 </p>
 
 <h1 align="center">Broilerplate</h1>
