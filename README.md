@@ -4,11 +4,7 @@
 
 <h1 align="center">Broilerplate</h1>
 
----
-
 <h3 align="center">A template project for new Go web backend applications.</h3>
-
----
 
 Can be used as a starting point for quickly prototyping a REST API or fully-fledged server-rendered web application in Go, backend by a relational database and common authentication / authorization. Originating from my work on [Wakapi](https://github.com/muety/wakapi).
 
@@ -45,7 +41,7 @@ Can be used as a starting point for quickly prototyping a REST API or fully-fled
 ## 🧂 Ingredients
 * Web server: [net/http](https://godoc.org/net/http) (stdlib)
 * Routing: [gorilla/mux](https://godoc.org/github.com/gorilla/mux)
-* Database / ORM: [gorm.io](https://godoc.org/gorm.io/gorm)
+* Database / ORM: [gorm.io/gorm](https://godoc.org/gorm.io/gorm)
 * Templating: [html/template](https://godoc.org/html/template) (stdlib)
 * Configuration: [jinzhu/configor](https://godoc.org/github.com/jinzhu/configor)
 * Logging: [emvi/logbuch](https://godoc.org/github.com/emvi/logbuch)
